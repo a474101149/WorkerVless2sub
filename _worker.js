@@ -1,64 +1,64 @@
 
 // 部署完成后在网址后面加上这个，获取订阅器默认节点，/auto
 
-let mytoken= ['auto'];//快速订阅访问入口, 留空则不启动快速订阅
+让 mytoken = [  'auto'  ] ; //快速订阅访问入口，留空则不启动快速订阅
 
 // 设置优选地址，不带端口号默认443，TLS订阅生成
-let addresses = [
-	'icook.tw:2053#官方优选域名',
-	'cloudflare.cfgo.cc#优选官方线路',
-];
+让地址= [
+	'icook.tw:2053#kk官方优选域名' ,
+	//'cloudflare.cfgo.cc#优选官方线路' ,
+] ;
 
 // 设置优选地址api接口
-let addressesapi = [
-	'https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressesapi.txt', //可参考内容格式 自行搭建。
-	//'https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressesipv6api.txt', //IPv6优选内容格式 自行搭建。
-];
+让地址API = [
+	//'https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressesapi.txt' , //可参考内容格式自行搭建。
+	//'https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressesipv6api.txt', //IPv6优选内容格式自行搭建。
+] ;
 
-// 设置优选地址，不带端口号默认80，noTLS订阅生成
-let addressesnotls = [
-	'www.visa.com.sg#官方优选域名',
-	'www.wto.org:8080#官方优选域名',
-	'www.who.int:8880#官方优选域名',
-];
+//设置指定地址，不带端口号默认80，noTLS订阅生成
+让地址notls = [
+	//'www.visa.com.sg#官方优选域名' ,
+	//'www.wto.org:8080#官方优选域名' ,
+	//'www.who.int:8880#官方优选域名' ,
+] ;
 
 // 设置优选noTLS地址api接口
-let addressesnotlsapi = [
-	'https://raw.githubusercontent.com/cmliu/CFcdnVmess2sub/main/addressesapi.txt', //可参考内容格式 自行搭建。
-];
+让地址notlsapi = [
+	'https://raw.githubusercontent.com/cmliu/CFcdnVmess2sub/main/addressesapi.txt' , //可参考内容格式自行搭建。
+] ;
 
-let DLS = 8;//速度下限
-let addressescsv = [
+令 DLS = 8；//速度下限
+让地址csv = [
 	//'https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressescsv.csv', //iptest测速结果文件。
-];
+] ;
 
-let subconverter = "apiurl.v1.mk"; //在线订阅转换后端，目前使用肥羊的订阅转换功能。支持自建psub 可自行搭建https://github.com/bulianglin/psub
-let subconfig = "https://raw.githubusercontent.com/cmliu/ACL4SSR/main/Clash/config/ACL4SSR_Online_Full_MultiMode.ini"; //订阅转换配置文件
-let noTLS = false; //改为 true , 将不做域名判断 始终返回noTLS节点
-let link = '';
-let edgetunnel = 'ed';
-let RproxyIP = 'false';
-let proxyIPs = [
-	'proxyip.aliyun.fxxk.dedyn.io',
-	'proxyip.multacom.fxxk.dedyn.io',
-	'proxyip.vultr.fxxk.dedyn.io',
-];
-let CMproxyIPs = [
+让 subconverter = "apiurl.v1.mk" ; //在线订阅转换笔记本，目前使用肥羊的订阅转换功能。支持自建psub可自行搭建https://github.com/bulianglin/psub
+让 subconfig = "https://raw.githubusercontent.com/cmliu/ACL4SSR/main/Clash/config/ACL4SSR_Online_Full_MultiMode.ini" ; //订阅转换配置文件
+让 noTLS = false；//改为true ,将不做域名判断仍返回noTLS节点
+令链接= ''；
+让edgetunnel = 'ed' ;
+让 RproxyIP = '假' ;
+设代理IP = [
+	'proxyip.aliyun.fxxk.dedyn.io' ,
+	'proxyip.multacom.fxxk.dedyn.io' ,
+	'proxyip.vultr.fxxk.dedyn.io' ,
+] ;
+让 CMproxyIPs = [
 	//{ proxyIP: "proxyip.fxxk.dedyn.io", type: "HK" },
-];
-let BotToken ='';
-let ChatID =''; 
-let proxyhosts = [//本地代理域名池
+] ;
+让 BotToken = '' ;
+让 ChatID = '' ;
+let   proxyhosts = [  //本地代理域名池
 	//'ppfv2tl9veojd-maillazy.pages.dev',
-];
-let proxyhostsURL = 'https://raw.githubusercontent.com/cmliu/CFcdnVmess2sub/main/proxyhosts';//在线代理域名池URL
-let EndPS = '';//节点名备注内容
+] ;
+让 proxyhostsURL = 'https://raw.githubusercontent.com/cmliu/CFcdnVmess2sub/main/proxyhosts' ; //在线代理域名池URL
+让 EndPS = '' ; // 节点名备注内容
 
-let FileName = 'WorkerVless2sub';
-let SUBUpdateTime = 6; 
-let total = 99;//PB
-//let timestamp = now;
-let timestamp = 4102329600000;//2099-12-31
+让文件名= 'WorkerVless2sub' ;
+令 SUBUpdateTime = 6；
+令总计= 99；//PB
+//让计时器=现在；
+让 时间戳= 4102329600000 ; //2099-12-31
 const regex = /^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[.*\]):?(\d+)?#?(.*)?$/;
 async function sendMessage(type, ip, add_data = "") {
 	if ( BotToken !== '' && ChatID !== ''){
